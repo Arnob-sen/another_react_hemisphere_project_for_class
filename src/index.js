@@ -18,14 +18,22 @@ class App extends React.Component{
         )
     }
     render(){
+
         
-        
+       if(this.state.latidue&&!this.state.errorMessage){ 
         return(
             <div>
                 my latidue is {this.state.latidue}
-                and error message is  {this.state.errorMessage}
+               
             </div>
         )
+       }
+       if(this.state.errorMessage&&!this.state.latidue){
+        return <div>error message is  {this.state.errorMessage}</div>
+       }
+       else {
+        return <div>Loading</div>
+       }
     }
 
     
