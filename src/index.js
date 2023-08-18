@@ -1,14 +1,10 @@
 import React from "react";
 import { createRoot } from 'react-dom/client';
+import Hemisphere from './Hemisphere';
 
 
 class App extends React.Component{
-    // constructor(props)
-    // {
-    //     super(props)// here we override props from parent class react.component.so props of parent class should work perfectly.thats why super 
-    //     this.state={latidue:null,errorMessage:''}//initialize state
-       
-    // }
+   
     state={latidue:null,errorMessage:''}//another way to initialize state without constructor
     componentDidMount()
     {
@@ -22,17 +18,14 @@ class App extends React.Component{
            }
         )
     }
-    componentDidUpdate()//when the component updated
-    {
-        console.log('componentdidUpdate')
-    }
+   
     render(){
 
         
        if(this.state.latidue&&!this.state.errorMessage){ 
         return(
             <div>
-                my latidue is {this.state.latidue}
+                <Hemisphere latidue={this.state.latidue}/>
                
             </div>
         )
