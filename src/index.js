@@ -3,10 +3,15 @@ import { createRoot } from 'react-dom/client';
 
 
 class App extends React.Component{
-    constructor(props)
+    // constructor(props)
+    // {
+    //     super(props)// here we override props from parent class react.component.so props of parent class should work perfectly.thats why super 
+    //     this.state={latidue:null,errorMessage:''}//initialize state
+       
+    // }
+    state={latidue:null,errorMessage:''}//another way to initialize state without constructor
+    componentDidMount()
     {
-        super(props)// here we override props from parent class react.component.so props of parent class should work perfectly.thats why super 
-        this.state={latidue:null,errorMessage:''}//initialize state
         window.navigator.geolocation.getCurrentPosition(
             (position)=>{
                 this.setState({latidue:position.coords.latitude})//this for update state.any time to change,update,manipulate use setState method.this will use 2nd time.1st time render show the initial value.then go the update method.then rerender it and show the updated value
@@ -16,6 +21,10 @@ class App extends React.Component{
             this.setState({errorMessage:error.message})
            }
         )
+    }
+    componentDidUpdate()//when the component updated
+    {
+        console.log('componentdidUpdate')
     }
     render(){
 
