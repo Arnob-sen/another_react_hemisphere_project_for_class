@@ -21,9 +21,16 @@ const Hemisphere=({latidue})=>
    
     return (
         <div className={check}>
+          <div className='ui raised text container segment'>
+            <div className='image'>
+          <img src={picture} alt={check} />
+          </div>
+          <div className='ui teal bottom attached label'>
+            <h1>  {text}</h1>
           
-            <img src={picture} alt={check} />
-            {text}
+            </div>
+          </div>
+            
             
         </div>
     )
